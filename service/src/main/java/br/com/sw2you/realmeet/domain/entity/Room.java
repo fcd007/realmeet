@@ -3,7 +3,6 @@ package br.com.sw2you.realmeet.domain.entity;
 import java.util.Objects;
 
 public class Room {
-
     private Long id;
 
     private String nome;
@@ -12,8 +11,7 @@ public class Room {
 
     private Boolean active;
 
-    public Room() {
-    }
+    public Room() {}
 
     private Room(Long id, String nome, Integer seats, Boolean active) {
         this.id = id;
@@ -44,10 +42,10 @@ public class Room {
         if (o == null || getClass() != o.getClass()) return false;
         Room room = (Room) o;
         return (
-                Objects.equals(id, room.id) &&
-                Objects.equals(nome, room.nome) &&
-                Objects.equals(seats, room.seats) &&
-                Objects.equals(active, room.active)
+            Objects.equals(id, room.id) &&
+            Objects.equals(nome, room.nome) &&
+            Objects.equals(seats, room.seats) &&
+            Objects.equals(active, room.active)
         );
     }
 
@@ -58,12 +56,7 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-            "id=" + id +
-            ", nome='" + nome + '\'' +
-            ", seats=" + seats +
-            ", active=" + active +
-            '}';
+        return "Room{" + "id=" + id + ", nome='" + nome + '\'' + ", seats=" + seats + ", active=" + active + '}';
     }
 
     public static Builder newBuilder() {
@@ -76,8 +69,7 @@ public class Room {
         private Integer seats;
         private Boolean active;
 
-        private Builder() {
-        }
+        private Builder() {}
 
         public Builder id(Long id) {
             this.id = id;
