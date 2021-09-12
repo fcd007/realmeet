@@ -1,9 +1,9 @@
 package br.com.sw2you.realmeet.domain.entity;
 
-import javax.persistence.*;
+import static java.util.Objects.isNull;
 
 import java.util.Objects;
-import static java.util.Objects.isNull;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "room")
@@ -33,7 +33,7 @@ public class Room {
     //setar active para true
     @PrePersist
     public void prePersists() {
-        if(isNull(active)) {
+        if (isNull(active)) {
             active = true;
         }
     }
