@@ -1,31 +1,49 @@
 package br.com.sw2you.realmeet.domain.entity;
 
-import java.util.Objects;
+import javax.persistence.*;
 
+import java.util.Objects;
+import static java.util.Objects.isNull;
+
+@Entity
+@Table(name = "room")
 public class Room {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    @Column(name = "name", nullable = false)
+    private String name;
 
+    @Column(name = "seats", nullable = false)
     private Integer seats;
 
+    @Column(name = "active", nullable = false)
     private Boolean active;
 
     public Room() {}
 
-    private Room(Long id, String nome, Integer seats, Boolean active) {
+    private Room(Long id, String name, Integer seats, Boolean active) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
         this.seats = seats;
         this.active = active;
+    }
+
+    //setar active para true
+    @PrePersist
+    public void prePersists() {
+        if(isNull(active)) {
+            active = true;
+        }
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
     public Integer getSeats() {
@@ -43,7 +61,7 @@ public class Room {
         Room room = (Room) o;
         return (
             Objects.equals(id, room.id) &&
-            Objects.equals(nome, room.nome) &&
+            Objects.equals(name, room.name) &&
             Objects.equals(seats, room.seats) &&
             Objects.equals(active, room.active)
         );
@@ -51,12 +69,12 @@ public class Room {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, seats, active);
+        return Objects.hash(id, name, seats, active);
     }
 
     @Override
     public String toString() {
-        return "Room{" + "id=" + id + ", nome='" + nome + '\'' + ", seats=" + seats + ", active=" + active + '}';
+        return "Room{" + "id=" + id + ", name='" + name + '\'' + ", seats=" + seats + ", active=" + active + '}';
     }
 
     public static Builder newBuilder() {
@@ -65,7 +83,7 @@ public class Room {
 
     public static final class Builder {
         private Long id;
-        private String nome;
+        private String name;
         private Integer seats;
         private Boolean active;
 
@@ -76,8 +94,8 @@ public class Room {
             return this;
         }
 
-        public Builder nome(String nome) {
-            this.nome = nome;
+        public Builder name(String name) {
+            this.name = name;
             return this;
         }
 
@@ -92,7 +110,7 @@ public class Room {
         }
 
         public Room build() {
-            return new Room(id, nome, seats, active);
+            return new Room(id, name, seats, active);
         }
     }
 }
