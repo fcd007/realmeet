@@ -1,4 +1,4 @@
-package br.com.sw2you.realmeet;
+package br.com.sw2you.realmeet.controller;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RoomController implements RoomsApi {
-
     private final RoomService roomService;
 
     public RoomController(RoomService roomService) {
