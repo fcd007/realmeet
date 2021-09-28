@@ -10,7 +10,7 @@ import br.com.sw2you.realmeet.mapper.RoomMapper;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-class RoomMapperUnitTest extends BaseUnitTest {
+public class RoomMapperUnitTest extends BaseUnitTest {
     private RoomMapper victim;
 
     @BeforeEach
@@ -19,7 +19,7 @@ class RoomMapperUnitTest extends BaseUnitTest {
     }
 
     @Test
-    void testFromEntityToDto() {
+    public void testFromEntityToDto() {
         var room = newRoomBuilder().id(DEFAULT_ROOM_ID).build();
         var dto = victim.fromEntityToDTO(room);
 
