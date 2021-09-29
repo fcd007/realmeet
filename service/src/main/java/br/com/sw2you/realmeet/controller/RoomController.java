@@ -23,6 +23,6 @@ public class RoomController implements RoomsApi {
 
     @Override
     public CompletableFuture<ResponseEntity<RoomDTO>> getRoom(Long id) {
-        return supplyAsync(() -> roomService.findById(id), controllersExecutor).thenApply(ResponseEntityUtils::ok);
+        return supplyAsync(() -> roomService.getRoom(id), controllersExecutor).thenApply(ResponseEntityUtils::ok);
     }
 }
