@@ -12,8 +12,8 @@ import br.com.sw2you.realmeet.exception.RoomNotFoundException;
 import br.com.sw2you.realmeet.service.RoomService;
 import br.com.sw2you.realmeet.utils.TestDataCreator;
 import java.util.Optional;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 public class RoomServiceUnitTest extends BaseUnitTest {
