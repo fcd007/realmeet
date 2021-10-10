@@ -1,5 +1,9 @@
 package br.com.sw2you.realmeet.service;
 
+/*
+ * Autor tester
+ */
+
 import static java.util.Objects.requireNonNull;
 
 import br.com.sw2you.realmeet.api.model.RoomDTO;
